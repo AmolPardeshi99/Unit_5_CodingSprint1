@@ -7,12 +7,5 @@ import androidx.paging.liveData
 
 class ActorRepository {
 
-    fun getPagerList()=
-        Pager(
-            config = PagingConfig(
-                pageSize = 20,
-                maxSize = MAX_SIZE_UNBOUNDED
-            ),
-            pagingSourceFactory = {ActorPagingSource()}
-        ).liveData
+
 }

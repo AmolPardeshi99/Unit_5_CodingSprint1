@@ -10,6 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".hilt.TvActorApp"
         android:theme="@style/Theme.Unit_5_CodingSprint1">
         <activity
             android:name=".ui.MainActivity"

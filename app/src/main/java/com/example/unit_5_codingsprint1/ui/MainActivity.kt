@@ -11,18 +11,21 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Main
-import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    lateinit var actorViewmodel: ActorViewModel
     lateinit var actorAdapter: ActorAdapter
+
+    val actorViewmodel :ActorViewModel by
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         actorViewmodel= ViewModelProvider(this).get(ActorViewModel::class.java)
         setAdapter()
+
+
         actorViewmodel.searchActor().observe(
             this,{
                 it?.let {
@@ -32,7 +35,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         )
-
     }
 
     private fun setAdapter() {
@@ -42,6 +44,5 @@ class MainActivity : AppCompatActivity() {
             layoutManager =linearlayoutManager
             this.adapter = actorAdapter
         }
-
     }
 }

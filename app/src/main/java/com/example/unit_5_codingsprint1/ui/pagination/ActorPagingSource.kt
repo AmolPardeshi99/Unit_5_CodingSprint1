@@ -4,12 +4,14 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.unit_5_codingsprint1.datamodel.remote.responsedto.ResponseDTO
 import com.example.unit_5_codingsprint1.datamodel.remote.responsedto.ResponseDTOItem
-import com.example.unit_5_codingsprint1.hilt.ActorModule
+import com.example.unit_5_codingsprint1.datamodel.remote.RetrofitHelper
+import com.example.unit_5_codingsprint1.repository.ActorRepo
 import java.lang.Exception
+import javax.inject.Inject
 
-class ActorPagingSource:PagingSource<Int,ResponseDTOItem>() {
+class ActorPagingSource @Inject constructor (private val actorRepo: ActorRepo):PagingSource<Int,ResponseDTOItem>() {
 
-    private val apiService = ActorModule.getRetrofit()
+    private val apiService = RetrofitHelper.getApiService()
     override fun getRefreshKey(state: PagingState<Int, ResponseDTOItem>): Int? {
         return state.anchorPosition
     }
@@ -20,6 +22,7 @@ class ActorPagingSource:PagingSource<Int,ResponseDTOItem>() {
         return try {
             val responseDTO:ResponseDTO = apiService.getAllActorsInfo(pageNumber)
             val responseDTOItemList:List<ResponseDTOItem> = responseDTO
+            actorRepo.addDataListToRoom(responseDTOItemList as ArrayList<ResponseDTOItem>)
             LoadResult.Page(
                 data = responseDTOItemList,
                 prevKey = null,

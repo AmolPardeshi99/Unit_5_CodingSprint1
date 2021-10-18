@@ -10,16 +10,16 @@ class ActorViewHolder(private val view: View):RecyclerView.ViewHolder(view) {
 
 
     fun setData(responseDTOItem:ResponseDTOItem){
-        if (responseDTOItem.birthday!=null && responseDTOItem.country!=null && responseDTOItem.deathday!=null){
+        //if (responseDTOItem.birthday!=null && responseDTOItem.country!=null && responseDTOItem.deathday!=null){
             view.apply {
                 tvActorName.text= responseDTOItem.name
                 tvBirthDate.text = responseDTOItem.birthday
-                tvCountryName.text = responseDTOItem.country.toString()
+                tvCountryName.text = responseDTOItem.country?.name
                 tvDeathDate.text = responseDTOItem.deathday
-                Glide.with(ivActorImage).load(responseDTOItem.image).into(ivActorImage)
+                Glide.with(ivActorImage).load(responseDTOItem.image?.original).into(ivActorImage)
             }
 
-        }
+        //}
 
     }
 }
