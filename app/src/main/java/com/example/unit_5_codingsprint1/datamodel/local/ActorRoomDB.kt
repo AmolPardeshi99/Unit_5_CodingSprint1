@@ -14,7 +14,7 @@ abstract class ActorRoomDB : RoomDatabase() {
     companion object {
         private var instance: ActorRoomDB? = null
         fun getDataBaseObject(context: Context): ActorRoomDB {
-            if (instance != null) {
+            if (instance == null) {
                 val builder = Room.databaseBuilder(
                     context.applicationContext,
                     ActorRoomDB::class.java,
