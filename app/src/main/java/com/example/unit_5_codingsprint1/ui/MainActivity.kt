@@ -13,15 +13,15 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 
-@AndroidEntryPoint
+//@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var actorAdapter: ActorAdapter
-
-    val actorViewmodel :ActorViewModel by
+    lateinit var  actorViewmodel :ActorViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         actorViewmodel= ViewModelProvider(this).get(ActorViewModel::class.java)
         setAdapter()
 

@@ -1,8 +1,6 @@
 package com.example.unit_5_codingsprint1.repository
 
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.liveData
+
 import com.example.unit_5_codingsprint1.datamodel.local.ActorData
 import com.example.unit_5_codingsprint1.datamodel.local.ActorDataDAO
 import com.example.unit_5_codingsprint1.datamodel.remote.RetrofitHelper
@@ -25,12 +23,5 @@ class ActorRepo @Inject constructor(val actorDataDAO: ActorDataDAO) {
     }
 
 
-    fun getPagerList()=
-        Pager(
-            config = PagingConfig(
-                pageSize = 20,
-                maxSize = PagingConfig.MAX_SIZE_UNBOUNDED
-            ),
-            pagingSourceFactory = { ActorPagingSource(this) }
-        ).liveData
+
 }

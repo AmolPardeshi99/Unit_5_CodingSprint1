@@ -9,7 +9,7 @@ import com.example.unit_5_codingsprint1.repository.ActorRepo
 import java.lang.Exception
 import javax.inject.Inject
 
-class ActorPagingSource @Inject constructor (private val actorRepo: ActorRepo):PagingSource<Int,ResponseDTOItem>() {
+class ActorPagingSource :PagingSource<Int,ResponseDTOItem>() {
 
     private val apiService = RetrofitHelper.getApiService()
     override fun getRefreshKey(state: PagingState<Int, ResponseDTOItem>): Int? {
@@ -22,7 +22,7 @@ class ActorPagingSource @Inject constructor (private val actorRepo: ActorRepo):P
         return try {
             val responseDTO:ResponseDTO = apiService.getAllActorsInfo(pageNumber)
             val responseDTOItemList:List<ResponseDTOItem> = responseDTO
-            actorRepo.addDataListToRoom(responseDTOItemList as ArrayList<ResponseDTOItem>)
+//            actorRepo.addDataListToRoom()
             LoadResult.Page(
                 data = responseDTOItemList,
                 prevKey = null,

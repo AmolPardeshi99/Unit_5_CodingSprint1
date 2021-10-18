@@ -8,8 +8,8 @@ import javax.inject.Inject
 class ActorViewModel @Inject constructor(val repo:ActorRepo): ViewModel() {
 
 
-    private val actorRepository= repo
-
-    fun searchActor()=
-        actorRepository.getPagerList()
+//    private val actorRepository= repo
+//
+//    fun searchActor()=
+//        actorRepository.getPagerList()
 }
