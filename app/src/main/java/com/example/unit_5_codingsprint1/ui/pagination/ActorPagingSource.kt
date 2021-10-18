@@ -6,7 +6,6 @@ import com.example.unit_5_codingsprint1.datamodel.remote.responsedto.ResponseDTO
 import com.example.unit_5_codingsprint1.datamodel.remote.responsedto.ResponseDTOItem
 import com.example.unit_5_codingsprint1.hilt.ActorModule
 import java.lang.Exception
-import kotlin.math.E
 
 class ActorPagingSource:PagingSource<Int,ResponseDTOItem>() {
 
@@ -24,10 +23,10 @@ class ActorPagingSource:PagingSource<Int,ResponseDTOItem>() {
             LoadResult.Page(
                 data = responseDTOItemList,
                 prevKey = null,
-                nextKey = if (responseDTOItemList.isEmpty()null else pageNumber+1)
+                nextKey = if (responseDTOItemList.isEmpty()) null else pageNumber+1
             )
         }catch (e:Exception){
-            LoadResult.Error(E)
+            LoadResult.Error(e)
         }
     }
 }

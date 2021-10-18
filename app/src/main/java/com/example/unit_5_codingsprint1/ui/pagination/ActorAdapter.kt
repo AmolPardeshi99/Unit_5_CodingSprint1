@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.example.unit_5_codingsprint1.R
-import com.example.unit_5_codingsprint1.datamodel.remote.responsedto.ResponseDTO
 import com.example.unit_5_codingsprint1.datamodel.remote.responsedto.ResponseDTOItem
 
 class ActorAdapter:PagingDataAdapter<ResponseDTOItem,ActorViewHolder>(diffUtil) {
